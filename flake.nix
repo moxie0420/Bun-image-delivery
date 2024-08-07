@@ -36,8 +36,11 @@
               # https://devenv.sh/reference/options/
               packages = [];
 
-              languages.javascript.bun = {
-                install.enable = true;
+              languages.javascript = {
+                enable = true;
+                bun = {
+                  install.enable = true;
+                };
               };
             }
           ];
