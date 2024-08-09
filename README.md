@@ -46,3 +46,9 @@ To create a standalone executable run
 ```bash
 bun run compile
 ```
+
+## TODO
+
+- [ ] Optimize images
+- [ ] setup environment variables
+- [ ] build with docker
