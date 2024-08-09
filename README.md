@@ -51,4 +51,4 @@ bun run compile
 
 - [ ] Optimize images
 - [ ] setup environment variables
-- [ ] build with docker
+- [x] include docker image
