@@ -2,6 +2,11 @@
   "name": "custom-cdn",
   "module": "src/index.ts",
   "type": "module",
+  "scripts": {
+    "dev": "bun run --watch ./src/index.ts",
+    "build": "bun build ./src/index.ts --outdir ./out --target bun",
+    "compile": "bun build ./src/index.ts --compile --outfile ./out/image-server"
+  },
   "devDependencies": {
     "@types/bun": "latest"
   },

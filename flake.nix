@@ -45,7 +45,10 @@
               };
 
               scripts = {
-                dev.exec = "bun --watch run src/index.ts";
+                setup.exec = "bun install";
+                dev.exec = "setup; bun --watch run src/index.ts";
+                build.exec = "bun build ./src/index.ts --outdir ./out --target bun";
+                compile.exec = "bun build ./src/index.ts --compile --outfile ./out/image-server";
               };
             }
           ];
