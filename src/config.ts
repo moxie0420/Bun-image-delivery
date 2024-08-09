@@ -31,7 +31,7 @@ export async function checkConfig(config: Iconfig) {
 const config: Iconfig = {
     port: process.env.PORT || 8000,
     imagePath: process.env.IMAGE_PATH || homedir() + "/Pictures",
-    cachePath: process.env.CACH_PATH || homedir() + "/Pictures/cache",
+    cachePath: process.env.CACHE_PATH || homedir() + "/Pictures/cache",
     ssl: process.env.USE_SSL === "true" ? {
         key: process.env.SSL_KEY,
         cert: process.env.SSL_CERT
