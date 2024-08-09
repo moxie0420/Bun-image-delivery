@@ -6,7 +6,7 @@
     "dev": "bun run --watch ./src/index.ts",
     "build": "bun build ./src/index.ts --outdir ./out --target bun",
     "compile": "bun build ./src/index.ts --compile --outfile ./out/image-server",
-    "install": "cp ./out/image-server /bin/image-server"
+    "install-bin": "cp ./out/image-server /bin/image-server"
   },
   "devDependencies": {
     "@types/bun": "latest"
