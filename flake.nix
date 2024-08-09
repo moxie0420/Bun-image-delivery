@@ -39,8 +39,13 @@
               languages.javascript = {
                 enable = true;
                 bun = {
-                  install.enable = true;
+                  enable = true;
+                  install.enable = false;
                 };
+              };
+
+              scripts = {
+                dev.exec = "bun --watch run src/index.ts";
               };
             }
           ];
