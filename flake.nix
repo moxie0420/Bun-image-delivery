@@ -34,7 +34,7 @@
           modules = [
             {
               # https://devenv.sh/reference/options/
-              packages = [];
+              packages = with pkgs; [prettier];
 
               languages.javascript = {
                 enable = true;
@@ -49,6 +49,7 @@
                 dev.exec = "setup; bun --watch run src/index.ts";
                 build.exec = "bun build ./src/index.ts --outdir ./out --target bun";
                 compile.exec = "bun build ./src/index.ts --compile --outfile ./out/image-server";
+                clean.exec = "rm -rf ./out";
               };
             }
           ];
