@@ -19,7 +19,7 @@ async function tranformImage(path: string, width?: number, height?: number) {
     return cachedImage;
   } else {
     console.log("Couldnt find cached Image, making a new one");
-    const resized = (await jimp.read("." + path)).resize(width, height);
+    const resized = (await jimp.read(config.imagePath + path)).resize(width, height);
 
     await resized.writeAsync(cached);
     return Bun.file(cached);
