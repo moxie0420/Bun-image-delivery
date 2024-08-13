@@ -50,5 +50,5 @@ bun run compile
 ## TODO
 
 - [ ] Optimize images
-- [ ] setup environment variables
+- [x] setup environment variables
 - [x] include docker image
