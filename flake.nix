@@ -38,6 +38,13 @@
           mkdir $out
           mv dist/bid $out
         '';
+        meta = {
+          homepage = "https://github.com/moxie0420/Bun-image-delivery";
+          description = "A simple image delivery tool written in typescript that uses the bun runtime ";
+          license = lib.license.mit;
+          platforms = lib.platforms.linux;
+          mainProgram = "bid";
+        };
       };
     in {
       devenv-up = self.devShells.${system}.default.config.procfileScript;
