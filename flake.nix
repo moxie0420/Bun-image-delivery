@@ -26,9 +26,8 @@
         name = "node-modules";
         src = ./.;
       };
-      bid = pkgs.stdenv.mkDerivation {
-        name = "bid";
-        pname = "bid";
+      bun-image-delivery = pkgs.stdenv.mkDerivation {
+        name = "bun-image-delivery";
         src = ./.;
         buildInputs = [pkgs.bun node-modules];
         buildPhase = ''
@@ -37,18 +36,13 @@
         '';
         installPhase = ''
           mkdir -p $out/bin
-          mv dist/bid $out/bin
+          mv dist/bun-image-delivery $out/bin
         '';
-        meta = {
-          homepage = "https://github.com/moxie0420/Bun-image-delivery";
-          description = "A simple image delivery tool written in typescript that uses the bun runtime ";
-          mainProgram = "bid";
-        };
       };
     in {
       devenv-up = self.devShells.${system}.default.config.procfileScript;
       dependencies = node-modules;
-      default = bid;
+      default = bun-image-delivery;
     });
 
     devShells =

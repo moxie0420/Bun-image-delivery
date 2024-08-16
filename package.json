@@ -6,8 +6,8 @@
   "scripts": {
     "dev": "bun run --watch ./src/index.ts",
     "build": "bun build ./src/index.ts --outdir ./out --target bun",
-    "compile": "bun build ./src/index.ts --compile --outfile ./dist/bid",
-    "install-bin": "cp ./dist/bid /bin/bid",
+    "compile": "bun build ./src/index.ts --compile --outfile ./dist/bun-image-delivery",
+    "install-bin": "cp ./dist/bun-image-delivery /bin/bun-image-delivery",
     "clean": "rm -rf ./dist"
   },
   "devDependencies": {
