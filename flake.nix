@@ -31,12 +31,21 @@
         src = ./.;
         buildInputs = [pkgs.bun node-modules];
         buildPhase = ''
+          runHook preBuild
+
           ln -s ${node-modules}/libexec/bun-image-delivery/node_modules node_modules
-          ${pkgs.bun}/bin/bun compile
+          bun build --compile --minify src/index.ts --outfile ./dist/bun-image-delivery
+
+          runHook postBuild
         '';
+        dontFixup = true;
         installPhase = ''
+          runHook preInstall
+
           mkdir -p $out/bin
-          mv dist/bun-image-delivery $out/bin
+          cp ./dist/* $out/bin/
+
+          runHook postInstall
         '';
       };
     in {
