@@ -1,5 +1,6 @@
 import config from "./config";
 import jimp from "jimp";
+/**
 import webpfy from 'webpfy';
 
 async function convertToWebp(path: string, width?: number, height?: number) {
@@ -14,6 +15,7 @@ async function convertToWebp(path: string, width?: number, height?: number) {
   const image = Bun.file(cached);
   const 
 }
+  */
 
 async function tranformImage(path: string, width?: number, height?: number) {
   if (!width) width = jimp.AUTO;

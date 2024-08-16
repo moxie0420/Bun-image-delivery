@@ -28,10 +28,10 @@
       };
       bid = pkgs.stdenv.mkDerivation {
         name = "bid";
+        src = ./.;
         buildInputs = [pkgs.bun node-modules];
         buildPhase = ''
-          ln -s ${node-modules}/libexec/astro-chef/node_modules node_modules
-          ${pkgs.bun}/bin/bun install --frozen-lockfile
+          ln -s ${node-modules}/libexec/bun-image-delivery/node_modules node_modules
           ${pkgs.bun}/bin/bun compile
         '';
         installPhase = ''
