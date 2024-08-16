@@ -20,8 +20,29 @@
   } @ inputs: let
     forEachSystem = nixpkgs.lib.genAttrs (import systems);
   in {
-    packages = forEachSystem (system: {
+    packages = forEachSystem (system: let
+      pkgs = nixpkgs.legacyPackages.${system};
+      node-modules = pkgs.mkYarnPackage {
+        name = "node-modules";
+        src = ./.;
+      };
+      bid = pkgs.stdenv.mkDerivation {
+        name = "bid";
+        buildInputs = [pkgs.bun node-modules];
+        buildPhase = ''
+          ln -s ${node-modules}/libexec/astro-chef/node_modules node_modules
+          ${pkgs.bun}/bin/bun install --frozen-lockfile
+          ${pkgs.bun}/bin/bun compile
+        '';
+        installPhase = ''
+          mkdir $out
+          mv dist/bid $out
+        '';
+      };
+    in {
       devenv-up = self.devShells.${system}.default.config.procfileScript;
+      dependencies = node-modules;
+      default = bid;
     });
 
     devShells =

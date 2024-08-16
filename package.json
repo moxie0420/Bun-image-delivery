@@ -1,13 +1,13 @@
 {
-  "name": "custom-cdn",
+  "name": "bun-image-delivery",
   "module": "src/index.ts",
   "type": "module",
   "scripts": {
     "dev": "bun run --watch ./src/index.ts",
     "build": "bun build ./src/index.ts --outdir ./out --target bun",
-    "compile": "bun build ./src/index.ts --compile --outfile ./out/image-server",
-    "install-bin": "cp ./out/image-server /bin/image-server",
-    "clean": "rm -rf ./out"
+    "compile": "bun build ./src/index.ts --compile --outfile ./dist/bid",
+    "install-bin": "cp ./dist/bid /bin/bid",
+    "clean": "rm -rf ./dist"
   },
   "devDependencies": {
     "@types/bun": "latest"
@@ -16,6 +16,8 @@
     "typescript": "^5.0.0"
   },
   "dependencies": {
-    "jimp": "^0.22.12"
+    "jimp": "^0.22.12",
+    "webp-converter": "^2.3.3",
+    "webpfy": "^1.0.9"
   }
 }

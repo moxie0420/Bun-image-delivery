@@ -3,7 +3,7 @@ WORKDIR /workdir
 COPY . .
 RUN bun install
 RUN bun run compile
-RUN cp out/image-server /bin/image-server
+RUN cp out/bid /bin/bid
 
 EXPOSE 8000
 
