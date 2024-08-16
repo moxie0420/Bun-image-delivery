@@ -28,6 +28,7 @@
       };
       bid = pkgs.stdenv.mkDerivation {
         name = "bid";
+        pname = "bid";
         src = ./.;
         buildInputs = [pkgs.bun node-modules];
         buildPhase = ''
@@ -35,8 +36,8 @@
           ${pkgs.bun}/bin/bun compile
         '';
         installPhase = ''
-          mkdir $out
-          mv dist/bid $out
+          mkdir -p $out/bin
+          mv dist/bid $out/bin
         '';
         meta = {
           homepage = "https://github.com/moxie0420/Bun-image-delivery";
